@@ -1,9 +1,9 @@
-var FRISBEE = FRISBEE || {};
+var FRISBEE = FRISBEE || {}; //NAMESPACE
 
-(function () {
+(function () { //ANNONIEME FUNCTIE
 	'use strict';
 	// Data objecten
-	FRISBEE.schedule = {
+	FRISBEE.schedule = { //LITERAL Object
 		title:'Pool A - Schedule',
 		schedulelist : [
 	    { date: "Monday, 9:00am", team1: "Chasing", team1Score: "13", team2: "Amsterdam Money Gang", team2Score: "9"},
@@ -68,9 +68,6 @@ var FRISBEE = FRISBEE || {};
 		init: function () {
 			// Initialize router
 			FRISBEE.router.init();
-		},
-		exit: function () {
-
 		}
 	};
 
@@ -95,21 +92,21 @@ var FRISBEE = FRISBEE || {};
 		},
 
 		change: function () {
-            var route = window.location.hash.slice(2),
+            var route = window.location.hash.slice(2),//Vanaf de hashtag pakt hij de 2e.
                 sections = qwery('section'),
                 section = qwery('[data-route=' + route + ']')[0];
 
             // Show active section, hide all other
             if (section) {
             	for (var i=0; i < sections.length; i++){
-            		sections[i].classList.remove('active');
+            		sections[i].classList.remove('active');//Hij haalt alle active classes weg van de secties
             	}
-            	section.classList.add('active');
+            	section.classList.add('active'); //Hier geeft hij de geselecteerde sectie de class active
             }
 
             // Default route
             if (!route) {
-            	sections[0].classList.add('active');
+            	sections[0].classList.add('active'); 
             }
 
 		}
@@ -126,7 +123,7 @@ var FRISBEE = FRISBEE || {};
 		}
 	}
 	// DOM ready
-	domready(function () {//DOMREADY kijkt of ALLES geladen is en laad dan javascript in.
+	domready(function () {//DOMREADY kijkt of ALLES geladen is en laad dan controller in.
 		// Kickstart application
 		FRISBEE.controller.init();
 	});
